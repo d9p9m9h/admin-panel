@@ -24,11 +24,12 @@
                     <div class="mb-3">
                         <div class="input-group">
                             <input type="email" name="email"
-                                class="form-control @error('email') is-invalid @enderror" placeholder="Email"
-                                value="{{ old('email') }}" required autofocus>
+                                class="form-control @error('email' or 'password') is-invalid @enderror" 
+                                placeholder="Email"
+                               value="{{ old('email') }}" required autofocus>
                             <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                         </div>
-                        @error('email')
+                        @error('email' or 'password')
                             <div class="text-danger small mt-1">{{ $message }}</div>
                         @enderror
                     </div>
@@ -36,8 +37,8 @@
                     <div class="mb-3">
                         <div class="input-group">
                             <input type="password" name="password"
-                                class="form-control @error('password') is-invalid @enderror" placeholder="Password"
-                                required>
+                                class="form-control @error('password') is-invalid @enderror" 
+                                placeholder="Password" required>
                             <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                         </div>
                         @error('password')

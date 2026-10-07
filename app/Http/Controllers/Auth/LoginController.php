@@ -26,11 +26,11 @@ class LoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         return back()
-            ->withErrors(['Incorrect email or password'])
+            ->withErrors(['email','password' => 'Incorrect email or password'])
             ->onlyInput('email');
     }
 
-    public function destory(Request $request)
+    public function destroy(Request $request)
     {
         Auth::logout();
 
