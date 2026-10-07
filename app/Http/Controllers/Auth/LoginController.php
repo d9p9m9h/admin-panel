@@ -26,7 +26,7 @@ class LoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
         return back()
-            ->withErrors(['email','password' => 'Incorrect email or password'])
+            ->withErrors(['email' => 'Incorrect email or password'])
             ->onlyInput('email');
     }
 
