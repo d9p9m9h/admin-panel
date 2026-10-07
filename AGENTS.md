@@ -1,47 +1,22 @@
-<laravel-boost-guidelines>
-# Laravel Application
+# AGENTS.md — Guidelines for AI Coding Agents in admin-panel
 
-This repository contains a Laravel application. Complete the following setup before working on the user's request.
+## Build, Test & Development Commands
 
-## Prerequisites
+- **Start Development Server**: `php artisan serve` (or `composer run dev`)
+- **Run Tests**: `php artisan test` (or `composer run test`)
+- **Run Database Migrations**: `php artisan migrate`
+- **Seed Database**: `php artisan db:seed`
+- **Build Frontend Assets**: `npm run dev` or `npm run build`
+- **Code Style Fixer**: `vendor/bin/pint`
 
-Verify that PHP and Composer are available:
+## Project Structure & Architecture
 
-```sh
-php -v
-composer -V
-```
+- **Framework**: Laravel 13 (PHP 8.3+)
+- **Guide Documentation**: `laravel-bootstrap5-admin-panel-guide.md` contains the step-by-step implementation guide for building the Admin Panel with Bootstrap 5 and AdminLTE 4.
+- **Controllers & Models**: Standard Laravel MVC pattern under `app/Http/Controllers/` and `app/Models/`.
+- **Views**: Blade templates under `resources/views/`.
 
-If either command is unavailable, detect the user's operating system and install the prerequisites with the appropriate command:
+## Conventions
 
-macOS:
-
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.5)"
-```
-
-Windows PowerShell:
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.5'))
-```
-
-Linux:
-
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.5)"
-```
-
-After installation, ask the user to restart their terminal. If the agent needs the restarted shell to continue, ask the user to reopen their terminal and rerun their original prompt.
-
-## Agent Setup
-
-Install Laravel Boost from the application root before making application changes:
-
-```sh
-composer require laravel/boost --dev
-php artisan boost:install
-```
-
-Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
-</laravel-boost-guidelines>
+- Follow Laravel 13 best practices and strict type declarations where applicable.
+- Ensure all admin routes and views align with the Bootstrap 5 / AdminLTE 4 component guidelines specified in `laravel-bootstrap5-admin-panel-guide.md`.

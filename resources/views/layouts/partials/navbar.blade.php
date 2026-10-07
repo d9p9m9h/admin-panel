@@ -12,14 +12,23 @@
         {{-- ညာဘက် — User menu --}}
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
+                
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <i class="bi bi-person-circle me-1"></i>
                     {{ auth()->user()?->name ?? 'Guest' }}
                 </a>
+                
                 <ul class="dropdown-menu dropdown-menu-end">
-                    {{-- Logout button ကို အဆင့် 7 မှာ ထည့်မယ် --}}
-                    <li><span class="dropdown-item-text text-muted">Account</span></li>
+                    <li>
+                        <form method="POST" action="{{ route('admin.logout') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-box-arrow-right me-2"></i> Logout
+                            </button>
+                        </form>
+                    </li>
                 </ul>
+
             </li>
         </ul>
     </div>
