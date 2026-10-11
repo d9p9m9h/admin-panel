@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,11 +25,18 @@ class DatabaseSeeder extends Seeder
             'role' => User::ROLE_SUPER_ADMIN,
         ]);
 
-        User::create([
+        $client = User::create([
             'name' => 'Client',
             'email' => 'd9p@client.com',
             'password' => 'pswd',
             'role' => User::ROLE_CLIENT,
+        ]);
+
+        Portfolio::create([
+            'owner_id' => $client->id,
+            'name' => 'Client A Portfolio',
+            'slug' => 'client-a',
+            'status' => Portfolio::STATUS_DRAFT,
         ]);
     }
 }
