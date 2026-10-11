@@ -19,10 +19,17 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::create([
-            'name' => 'd9p',
+            'name' => 'Super Admin',
             'email' => 'd9p@admin.com',
-            'password' => Hash::make('pswd'),
-            'role' => 'super_admin',
+            'password' => 'pswd',
+            'role' => User::ROLE_SUPER_ADMIN,
+        ]);
+
+        User::create([
+            'name' => 'Client',
+            'email' => 'd9p@client.com',
+            'password' => 'pswd',
+            'role' => User::ROLE_CLIENT,
         ]);
     }
 }

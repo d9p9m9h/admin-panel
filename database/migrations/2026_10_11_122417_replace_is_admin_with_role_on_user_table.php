@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -13,8 +15,11 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('role')->default('client')->after('email');
-            $table->dropColumn('is_admin');
         });
+
+        DB::table('users')->where('role', 'super_admin')->update([
+            'role' => User::ROLE_SUPER_ADMIN,
+        ]);
     }
 
     /**
@@ -23,7 +28,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false)->after('email');
             $table->dropColumn('role');
         });
     }
