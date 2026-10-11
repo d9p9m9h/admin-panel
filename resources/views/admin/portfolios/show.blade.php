@@ -1,5 +1,5 @@
 {{-- resources/views/admin/portfolios/show.blade.php --}}
-@extends('layouts.admin')
+{{-- @extends('layouts.admin')
 
 @section('title', $portfolio->name)
 @section('page-title', $portfolio->name)
@@ -19,4 +19,4 @@
             <p><strong>Owner:</strong> {{ $portfolio->owner?->name }}</p>
         </div>
     </div>
-@endsection
+@endsection --}}
